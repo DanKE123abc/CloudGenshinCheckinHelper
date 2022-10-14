@@ -3,6 +3,7 @@ import requests
 import json
 import time
 import wechatpush
+import kilog #作者：蛋壳 地址：https://github.com/DanKE123abc/KiLog
 
 #时间：2022/10/14
 #作者：蛋壳
@@ -86,8 +87,7 @@ def handler(event, context):#这里是阿里云的入口，腾讯云要改成mai
             msg =  writeMsg()
         except:
             msg = '签到失败，headers可能发生错误'
-        #print(msg)
-        #dankepush(pushid, msg)
+            kilog.warning(msg)
         wechatpush.push(pushid, msg)
 
 

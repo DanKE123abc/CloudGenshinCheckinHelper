@@ -4,6 +4,10 @@ import json
 import time
 from wechatpush import AccessToken
 
+#时间：2022/9/16
+#作者：蛋壳
+#备注：云原神自动签到
+
 host = setting.host
 headers = setting.headers
 

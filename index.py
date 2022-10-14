@@ -106,7 +106,7 @@ def handler(event, context):#这里是阿里云的入口，腾讯云要改成mai
             buildHearders(token,device_id,device_name,device_model)
             msg =  writeMsg()
         except:
-            msg = '签到失败，headers可能发送错误'
+            msg = '签到失败，headers可能发生错误'
         #print(msg)
         dankepush(pushid, msg)
 

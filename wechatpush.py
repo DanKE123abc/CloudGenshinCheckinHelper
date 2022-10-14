@@ -1,8 +1,9 @@
 import requests
 import setting
 import json
+import kilog
 
-#时间：2022/9/16
+#时间：2022/10/14
 #作者：蛋壳
 #备注：微信测试号token
 
@@ -44,4 +45,4 @@ class AccessToken(object):
         if 'access_token' in result:
             return result["access_token"]
         else:
-            print(result)
+            kilog.info(result)

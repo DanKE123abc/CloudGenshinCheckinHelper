@@ -23,8 +23,7 @@ def push(openid,message):#微信推送
         data=bytes(json.dumps(body, ensure_ascii=False), encoding='utf-8')
     )
     result = response.json()
-    if result["errcode"] != 0:
-        print("发送失败！请排查错误原因："+result)
+    print(result)
 
 class AccessToken(object):
     APPID = setting.APPID

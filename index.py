@@ -2,7 +2,7 @@ import setting
 import requests
 import json
 import time
-from wechatpush import AccessToken
+import wechatpush
 
 #时间：2022/9/16
 #作者：蛋壳
@@ -10,27 +10,6 @@ from wechatpush import AccessToken
 
 host = setting.host
 headers = setting.headers
-
-
-def dankepush(openid,message):#微信推送
-    access_token = AccessToken().get_access_token()
-    body = {
-        "touser": openid,
-        "msgtype": "text",
-        "text": {
-            "content": message
-        }
-    }
-    response = requests.post(
-        url="https://api.weixin.qq.com/cgi-bin/message/custom/send",
-        params={
-            'access_token': access_token
-        },
-        data=bytes(json.dumps(body, ensure_ascii=False), encoding='utf-8')
-    )
-    result = response.json()
-    print(result)
-
 
 def buildHearders(token,device_id,device_name,device_model):#更改headers
         headers["x-rpc-combo_token"] = token
@@ -44,12 +23,12 @@ def sign():#签到
     return json.loads(rsp.text)
 
 
-def getInfo():#签到时长检测
+def getInfo():#时长检测
     rsp = requests.get(f'{host}/hk4e_cg_cn/wallet/wallet/get', headers=headers)
     return rsp.json()
 
 
-def getRewards():
+def getRewards():#获取额外奖励
     rsp = requests.get(f'{host}/hk4e_cg_cn/gamer/api/listNotifications?status=NotificationStatusUnread'
                        f'&type=NotificationTypePopup&is_sort=true', headers=headers)
     rewards = rsp.json()['data']['list']
@@ -108,8 +87,8 @@ def handler(event, context):#这里是阿里云的入口，腾讯云要改成mai
         except:
             msg = '签到失败，headers可能发生错误'
         #print(msg)
-        dankepush(pushid, msg)
-
+        #dankepush(pushid, msg)
+        wechatpush.push(pushid, msg)
 
 
 

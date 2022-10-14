@@ -1,9 +1,30 @@
 import requests
 import setting
+import json
 
 #时间：2022/9/16
 #作者：蛋壳
 #备注：微信测试号token
+
+def push(openid,message):#微信推送
+    access_token = AccessToken().get_access_token()
+    body = {
+        "touser": openid,
+        "msgtype": "text",
+        "text": {
+            "content": message
+        }
+    }
+    response = requests.post(
+        url="https://api.weixin.qq.com/cgi-bin/message/custom/send",
+        params={
+            'access_token': access_token
+        },
+        data=bytes(json.dumps(body, ensure_ascii=False), encoding='utf-8')
+    )
+    result = response.json()
+    if result["errcode"] != 0:
+        print("发送失败！请排查错误原因："+result)
 
 class AccessToken(object):
     APPID = setting.APPID

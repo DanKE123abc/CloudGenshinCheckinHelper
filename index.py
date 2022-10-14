@@ -4,7 +4,7 @@ import json
 import time
 import wechatpush
 
-#时间：2022/9/16
+#时间：2022/10/14
 #作者：蛋壳
 #备注：云原神自动签到
 

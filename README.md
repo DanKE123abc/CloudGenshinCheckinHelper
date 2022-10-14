@@ -1,4 +1,7 @@
 # CloudGenshinCheckHelper
+
+![Language](https://img.shields.io/badge/Language-Python-yellow)![LICENSE](https://img.shields.io/badge/LICENSE-GPL--3.0-red)![Author](https://img.shields.io/badge/Author-DanKe-blue)
+
 云原神自动签到，每天自动白嫖15分钟免费时长，使用微信订阅号推送信息。
 
 ### 起因

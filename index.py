@@ -4,8 +4,9 @@ import json
 import time
 import wechatpush
 
-#时间：2022/10/14
+#时间：2022/10/22
 #作者：蛋壳
+#Another: DanKe
 #备注：云原神自动签到
 
 host = setting.host
@@ -86,9 +87,14 @@ def handler(event, context):#这里是阿里云的入口，腾讯云要改成mai
             msg =  writeMsg()
         except:
             msg = '签到失败，headers可能发生错误'
+            msg_en = 'Check in failed,possible error in headers'
             print(msg)
-        wechatpush.push_text(pushid, msg)
-
+            print(msg_en)
+        if setting.WechatPush == True :
+            wechatpush.push_text(pushid, msg)
+        elif setting.WechatPush == False :
+            print("微信推送功能未启用")
+            print('WeChatPush is not enabled')
 
 
 if __name__ == '__main__':

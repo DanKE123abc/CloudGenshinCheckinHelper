@@ -63,7 +63,8 @@ def writeMsg():#签到和编辑信息
 🎁额外奖励：{}个
 ####################
 祝您过上美好的一天！
-                        ——by DanKe'''.format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time() + 28800)),
+
+     ——by DanKe'''.format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time() + 28800)),
                                coins['coin_num'],
                                free_times['free_time'],
                                total_time,

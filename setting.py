@@ -10,7 +10,7 @@ APPSECRET = ""
 
 #--------------------云原神设置---------------------
 
-app_version = "3.1.0"#云原神版本号
+app_version = "3.2.0"#云原神版本号
 sys_version = "11"#安卓版本号
 app_id = '1953439974'#好像是固定的，不用变
 host = 'https://api-cloudgame.mihoyo.com'

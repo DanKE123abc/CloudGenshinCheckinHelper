@@ -12,11 +12,23 @@ import wechatpush
 host = setting.host
 headers = setting.headers
 
+def update():
+    try:
+        get_version = requests.get('https://api-cloudgame-static.mihoyo.com/hk4e_cg_cn/gamer/api/getFunctionShieldNew?client_type=1').text
+        version = json.loads(get_version)['data']['config']['cg.key_function_video_mode']['versions'][-2]
+    except:
+        return True
+    if version == setting.app_version:
+        return True
+    else:
+        return False
+    
+
 def buildHearders(token,device_id,device_name,device_model):#更改headers
-        headers["x-rpc-combo_token"] = token
-        headers["x-rpc-device_id"] = device_id
-        headers["x-rpc-device_name"] = device_name
-        headers["x-rpc-device_model"] = device_model
+    headers["x-rpc-combo_token"] = token
+    headers["x-rpc-device_id"] = device_id
+    headers["x-rpc-device_name"] = device_name
+    headers["x-rpc-device_model"] = device_model
 
 
 def sign():#签到
@@ -84,8 +96,12 @@ def handler(event, context):#这里是阿里云的入口，腾讯云要改成mai
         device_model = user['MODEL']
         pushid = user['pushid']
         try:
-            buildHearders(token,device_id,device_name,device_model)
-            msg =  writeMsg()
+            if update() == True:
+                buildHearders(token,device_id,device_name,device_model)
+                msg =  writeMsg()
+            else:
+                msg = "当前版本已过时，请拉取最新代码！"
+                print(msg)
         except:
             msg = '签到失败，headers可能发生错误'
             msg_en = 'Check in failed,possible error in headers'

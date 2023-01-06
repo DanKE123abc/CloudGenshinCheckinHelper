@@ -21,7 +21,13 @@
   7.项目所有者有权利对项目内任何部分进行删除。
 ```
 
+### 注意
 
+新版本中的CheckinHelper已经移除了内置的requests库，需要的请自行安装。
+
+```
+pip install requests -t.
+```
 
 ### 起因
 

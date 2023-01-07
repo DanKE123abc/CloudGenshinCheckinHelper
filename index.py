@@ -72,7 +72,6 @@ def writeMsg():#签到和编辑信息
 🎯免费时长：{}分钟
 🧐总时长：{}分钟
 💻签到结果：{}
-🎁额外奖励：{}个
 ####################
 祝您过上美好的一天！
 
@@ -80,8 +79,7 @@ def writeMsg():#签到和编辑信息
                                coins['coin_num'],
                                free_times['free_time'],
                                total_time,
-                               signResult['message'],
-                               rewards)
+                               signResult['message'])
         return message
         
 

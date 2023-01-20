@@ -64,3 +64,8 @@ pip install requests -t.
 ### 待续
 
 todo
+
+### 鸣谢
+**JetBrains**
+
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo." width=100 height=100>

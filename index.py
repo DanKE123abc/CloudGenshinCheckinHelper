@@ -77,7 +77,7 @@ def writeMsg():  # 签到和编辑信息
     return message
 
 
-def handler(event, context):  # 这里是阿里云的入口，腾讯云要改成main_handler
+def handler(event, context):  # 阿里云，华为云入口
     config_path = "config.json"
     with open(config_path, "r") as f:
         row_data = json.load(f)
@@ -106,5 +106,9 @@ def handler(event, context):  # 这里是阿里云的入口，腾讯云要改成
             print('WeChatPush is not enabled')
 
 
-if __name__ == '__main__':
+def handler(event, context):  # 腾讯云入口
+    handler(event, context)
+
+
+if __name__ == '__main__':  # 直接运行入口
     handler(None, None)

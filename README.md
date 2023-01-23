@@ -31,7 +31,7 @@ pip install requests -t.
 
 ### 起因
 
-上学没时间玩游戏，没时间签到云原神，导致假期又不够时间玩，嗯，就这样。
+上学没时间玩游戏，没时间签到云原神，导致假期又不够时间玩。
 
 ### 安装教程
 
@@ -64,3 +64,8 @@ pip install requests -t.
 ### 待续
 
 todo
+
+### 鸣谢
+**JetBrains**
+
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo." width=100 height=100>

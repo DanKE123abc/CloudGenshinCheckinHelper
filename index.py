@@ -106,7 +106,7 @@ def handler(event, context):  # 阿里云，华为云入口
             print('WeChatPush is not enabled')
 
 
-def handler(event, context):  # 腾讯云入口
+def main_handler(event, context):  # 腾讯云入口
     handler(event, context)
 
 
